@@ -1,0 +1,12 @@
+services:
+  postfix-reception:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./postfix-reception:/etc/postfix
+    ports:
+      - 25:25
+    command: postfix start-fg
